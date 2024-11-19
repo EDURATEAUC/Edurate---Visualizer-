@@ -1,77 +1,48 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'database.dart';
 import 'styles.dart';
 
 class SignUpPage extends StatelessWidget {
-  final TextEditingController nameController = TextEditingController();
+  final TextEditingController fullNameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
-  final TextEditingController confirmPasswordController = TextEditingController();
 
-  SignUpPage({super.key});
+  void _registerUser(BuildContext context) async {
+    try {
+      final userCredential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
+        email: emailController.text.trim(),
+        password: passwordController.text.trim(),
+      );
+      await FirebaseFirestore.instance.collection('users').doc(userCredential.user!.uid).set({
+        'fullName': fullNameController.text.trim(),
+        'email': emailController.text.trim(),
+      });
+      Navigator.pop(context);
+    } catch (e) {
+      print("Registration Error: $e");
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: backgroundColor,
       appBar: AppBar(
-        title: const Text('Sign-Up', style: TextStyle(color: Colors.black87)),
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        iconTheme: const IconThemeData(color: Colors.black87),
+        title: Text('Sign Up', style: headingStyle.copyWith(color: Colors.white)),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            _buildInputField('Full Name', nameController),
-            _buildInputField('AUC Email', emailController),
-            _buildInputField('Password', passwordController, obscureText: true),
-            _buildInputField('Confirm Password', confirmPasswordController, obscureText: true),
-            const SizedBox(height: 20),
+            _buildInputField(fullNameController, 'Full Name'),
+            _buildInputField(emailController, 'AUC Email'),
+            _buildInputField(passwordController, 'Password', obscureText: true),
+            SizedBox(height: 20),
             ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: primaryColor,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 80),
-              ),
-              onPressed: () async {
-                String name = nameController.text.trim();
-                String email = emailController.text.trim();
-                String password = passwordController.text;
-                String confirmPassword = confirmPasswordController.text;
-
-                if (!email.endsWith('@aucegypt.edu')) {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text('Please use a valid AUC email address.')),
-                  );
-                  return;
-                }
-
-                if (password != confirmPassword) {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text('Passwords do not match!')),
-                  );
-                  return;
-                }
-
-                final db = await DatabaseHelper().database;
-                await db.insert('accounts', {
-                  'full_name': name,
-                  'email': email,
-                  'password': password,
-                });
-
-                ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(content: Text('Account created successfully!')),
-                );
-
-                Navigator.pop(context);
-              },
-              child: const Text('Register', style: TextStyle(fontSize: 18)),
+              style: buttonStyle,
+              onPressed: () => _registerUser(context),
+              child: Text('Register', style: TextStyle(fontSize: 18)),
             ),
           ],
         ),
@@ -79,7 +50,7 @@ class SignUpPage extends StatelessWidget {
     );
   }
 
-  Widget _buildInputField(String label, TextEditingController controller, {bool obscureText = false}) {
+  Widget _buildInputField(TextEditingController controller, String label, {bool obscureText = false}) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8.0),
       child: TextField(
