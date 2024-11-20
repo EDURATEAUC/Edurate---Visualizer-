@@ -15,7 +15,7 @@ class SignUpPage extends StatelessWidget {
       await FirebaseFirestore.instance.collection('users').add({
         'name': name,
         'email': email,
-        'password': password, // Avoid storing plain passwords in real apps
+        'password': password, 
       });
 
       ScaffoldMessenger.of(context).showSnackBar(

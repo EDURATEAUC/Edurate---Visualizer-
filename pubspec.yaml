@@ -31,8 +31,11 @@ dependencies:
   flutter:
     sdk: flutter
   firebase_core: ^2.14.0 
-  firebase_auth: ^4.6.2
-  cloud_firestore: ^4.11.0 # For Firestore database support
+  firebase_auth: ^4.16.0
+  firebase_auth_web: ^5.8.13
+  firebase_storage: ^11.4.1
+  firebase_database: ^10.4.1
+  cloud_firestore: ^4.11.0 
 
 
 
