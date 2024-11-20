@@ -34,21 +34,21 @@ git clone <repository-url>
 cd edurate-mobile-app
 ```
 
-2. Install Dependencies
+### 2. Install Dependencies
 Run the following to fetch all dependencies:
 
 ``` bash
 flutter pub get
 ```
 
-3. Configure Firebase
+### 3. Configure Firebase
 Download the google-services.json file (for Android) or GoogleService-Info.plist file (for iOS) from your Firebase console.
 Place the file in the respective directories:
 Android: android/app/
 iOS: ios/Runner/
 
 
-5. Run the App
+### 4. Run the App
 Run the application on an emulator or physical device:
 
 ```bash
@@ -56,7 +56,7 @@ flutter run
 
 ```
 
-6. Technologies Used
+### 5. Technologies Used
 Flutter: Cross-platform app development framework.
 Firebase Firestore: Real-time NoSQL database for storing courses and user data.
 Firebase Authentication: For managing user sign-ups and logins.
