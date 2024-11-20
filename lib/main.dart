@@ -1,10 +1,11 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'Login.dart';
+import 'default.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  await DefaultConnector.initializeFirebase(); 
   runApp(MyApp());
 }
 
@@ -12,10 +13,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'EduRate',
-      theme: ThemeData(primarySwatch: Colors.blue),
-      home: LoginPage(),
+      home: Scaffold(
+        appBar: AppBar(title: Text('Firestore Database')),
+        body: Center(child: Text('Firebase Initialized')),
+      ),
     );
   }
 }

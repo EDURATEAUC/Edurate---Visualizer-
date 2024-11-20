@@ -1,69 +1,61 @@
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'styles.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class SignUpPage extends StatelessWidget {
-  final TextEditingController fullNameController = TextEditingController();
-  final TextEditingController emailController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
+  final TextEditingController _nameController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
 
-  void _registerUser(BuildContext context) async {
-    try {
-      final userCredential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
-        email: emailController.text.trim(),
-        password: passwordController.text.trim(),
-      );
-      await FirebaseFirestore.instance.collection('users').doc(userCredential.user!.uid).set({
-        'fullName': fullNameController.text.trim(),
-        'email': emailController.text.trim(),
+  Future<void> _registerUser(BuildContext context) async {
+    String name = _nameController.text.trim();
+    String email = _emailController.text.trim();
+    String password = _passwordController.text.trim();
+
+    if (email.isNotEmpty && password.isNotEmpty) {
+      await FirebaseFirestore.instance.collection('users').add({
+        'name': name,
+        'email': email,
+        'password': password, // Avoid storing plain passwords in real apps
       });
+
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Account created successfully!')),
+      );
       Navigator.pop(context);
-    } catch (e) {
-      print("Registration Error: $e");
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Please fill all fields')),
+      );
     }
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: backgroundColor,
-      appBar: AppBar(
-        title: Text('Sign Up', style: headingStyle.copyWith(color: Colors.white)),
-      ),
+      appBar: AppBar(title: const Text('Sign Up')),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
-            _buildInputField(fullNameController, 'Full Name'),
-            _buildInputField(emailController, 'AUC Email'),
-            _buildInputField(passwordController, 'Password', obscureText: true),
-            SizedBox(height: 20),
+            TextField(
+              controller: _nameController,
+              decoration: const InputDecoration(labelText: 'Full Name'),
+            ),
+            TextField(
+              controller: _emailController,
+              decoration: const InputDecoration(labelText: 'Email'),
+            ),
+            TextField(
+              controller: _passwordController,
+              decoration: const InputDecoration(labelText: 'Password'),
+              obscureText: true,
+            ),
+            const SizedBox(height: 20),
             ElevatedButton(
-              style: buttonStyle,
               onPressed: () => _registerUser(context),
-              child: Text('Register', style: TextStyle(fontSize: 18)),
+              child: const Text('Register'),
             ),
           ],
-        ),
-      ),
-    );
-  }
-
-  Widget _buildInputField(TextEditingController controller, String label, {bool obscureText = false}) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8.0),
-      child: TextField(
-        controller: controller,
-        obscureText: obscureText,
-        decoration: InputDecoration(
-          labelText: label,
-          filled: true,
-          fillColor: inputFieldColor,
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10),
-            borderSide: BorderSide.none,
-          ),
         ),
       ),
     );
