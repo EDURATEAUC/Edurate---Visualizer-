@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background3">
+
+    <!-- TopBar -->
+    <LinearLayout
+        android:id="@+id/TopBar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/purple_700"
+        android:gravity="start"
+        android:padding="5dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:id="@+id/homeicon"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/homee" />
+    </LinearLayout>
+
+    <!-- Courses Section -->
+    <LinearLayout
+        android:id="@+id/coursesLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="start"
+        android:padding="10dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/TopBar"
+        app:layout_constraintBottom_toTopOf="@id/departmentsScrollView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:id="@+id/courses"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:text="Departments"
+            android:textColor="@color/white"
+            android:textSize="30dp"
+            android:layout_marginBottom="0dp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+
+
+    <ScrollView
+        android:id="@+id/departmentsScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        app:layout_constraintTop_toBottomOf="@id/coursesLayout"
+        app:layout_constraintBottom_toTopOf="@id/NavigationBar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@color/white"
+            android:padding="10dp">
+
+            <Button
+                android:id="@+id/accounting"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start|center_vertical"
+                android:text="Accounting"
+                android:layout_marginBottom="10dp"
+                android:background="@color/white"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:minHeight="48dp"/>
+
+            <Button
+                android:id="@+id/anthropology"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start|center_vertical"
+                android:text="Anthropology"
+                android:layout_marginBottom="10dp"
+                android:background="@color/white"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:minHeight="48dp"/>
+
+            <Button
+                android:id="@+id/architecture"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start|center_vertical"
+                android:text="Architecture"
+                android:layout_marginBottom="10dp"
+                android:background="@color/white"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:minHeight="48dp"/>
+
+            <Button
+                android:id="@+id/biology"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start|center_vertical"
+                android:text="Biology"
+                android:layout_marginBottom="10dp"
+                android:background="@color/white"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:minHeight="48dp"/>
+
+            <Button
+                android:id="@+id/business"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start|center_vertical"
+                android:text="Business Administration"
+                android:layout_marginBottom="10dp"
+                android:background="@color/white"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:minHeight="48dp"/>
+
+            <Button
+                android:id="@+id/chemistry"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start|center_vertical"
+                android:text="Chemistry"
+                android:layout_marginBottom="10dp"
+                android:background="@color/white"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:minHeight="48dp"/>
+
+            <Button
+                android:id="@+id/computerscience"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start|center_vertical"
+                android:text="Computer Science and Engineering"
+                android:layout_marginBottom="10dp"
+                android:background="@color/white"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:minHeight="48dp"/>
+
+            <Button
+                android:id="@+id/construction"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start|center_vertical"
+                android:text="Construction Engineering"
+                android:layout_marginBottom="10dp"
+                android:background="@color/white"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:minHeight="48dp"/>
+
+            <Button
+                android:id="@+id/core"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start|center_vertical"
+                android:text="Core Curriculum"
+                android:layout_marginBottom="10dp"
+                android:background="@color/white"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:minHeight="48dp"/>
+
+            <Button
+                android:id="@+id/datascience"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start|center_vertical"
+                android:text="Data Science"
+                android:layout_marginBottom="10dp"
+                android:background="@color/white"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:minHeight="48dp"/>
+
+            <Button
+                android:id="@+id/economics"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start|center_vertical"
+                android:text="Economics"
+                android:layout_marginBottom="10dp"
+                android:background="@color/white"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:minHeight="48dp"/>
+
+            <Button
+                android:id="@+id/film"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start|center_vertical"
+                android:text="Film"
+                android:layout_marginBottom="10dp"
+                android:background="@color/white"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:minHeight="48dp"/>
+
+            <Button
+                android:id="@+id/finance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start|center_vertical"
+                android:text="Finance"
+                android:layout_marginBottom="10dp"
+                android:background="@color/white"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:minHeight="48dp"/>
+
+            <Button
+                android:id="@+id/graphicdesign"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start|center_vertical"
+                android:text="Graphic Design"
+                android:layout_marginBottom="10dp"
+                android:background="@color/white"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:minHeight="48dp"/>
+
+            <Button
+                android:id="@+id/history"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start|center_vertical"
+                android:text="History"
+                android:layout_marginBottom="10dp"
+                android:background="@color/white"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:minHeight="48dp"/>
+
+            <Button
+                android:id="@+id/journalism"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start|center_vertical"
+                android:text="Journalism and Mass Com."
+                android:layout_marginBottom="10dp"
+                android:background="@color/white"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:minHeight="48dp"/>
+
+            <Button
+                android:id="@+id/linguistics"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start|center_vertical"
+                android:text="Linguistics"
+                android:layout_marginBottom="10dp"
+                android:background="@color/white"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:minHeight="48dp"/>
+
+            <Button
+                android:id="@+id/math"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start|center_vertical"
+                android:text="Math and Actuarial Science"
+                android:layout_marginBottom="10dp"
+                android:background="@color/white"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:minHeight="48dp"/>
+
+            <Button
+                android:id="@+id/music"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start|center_vertical"
+                android:text="Music"
+                android:layout_marginBottom="10dp"
+                android:background="@color/white"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:minHeight="48dp"/>
+
+            <Button
+                android:id="@+id/philosophy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start|center_vertical"
+                android:text="Philosophy"
+                android:layout_marginBottom="10dp"
+                android:background="@color/white"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:minHeight="48dp"/>
+
+            <Button
+                android:id="@+id/physics"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start|center_vertical"
+                android:text="Physics"
+                android:layout_marginBottom="10dp"
+                android:background="@color/white"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:minHeight="48dp"/>
+
+            <Button
+                android:id="@+id/politicalscience"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start|center_vertical"
+                android:text="Political Science"
+                android:layout_marginBottom="10dp"
+                android:background="@color/white"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:minHeight="48dp"/>
+
+            <Button
+                android:id="@+id/psychology"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start|center_vertical"
+                android:text="Psychology"
+                android:layout_marginBottom="10dp"
+                android:background="@color/white"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:minHeight="48dp"/>
+
+            <Button
+                android:id="@+id/sociology"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start|center_vertical"
+                android:text="Sociology"
+                android:layout_marginBottom="10dp"
+                android:background="@color/white"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:minHeight="48dp"/>
+
+            <Button
+                android:id="@+id/theatre"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start|center_vertical"
+                android:text="Theatre"
+                android:layout_marginBottom="10dp"
+                android:background="@color/white"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:minHeight="48dp"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+
+    <!-- Navigation Bar -->
+    <LinearLayout
+        android:id="@+id/NavigationBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottomNavigationView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            app:menu="@menu/navigation_menu" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

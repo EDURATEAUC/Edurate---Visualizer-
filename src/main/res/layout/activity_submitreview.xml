@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background3"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="40dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center|center_vertical"
+            android:text="Submit Rating for Dr. Sherif Aly"
+            android:textColor="@color/white"
+            android:textSize="25dp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="40dp">
+        <!-- Teaching Clarity Dropdown -->
+        <TextView
+            android:id="@+id/teachingClarity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Teaching Clarity"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:layout_marginTop="10dp"/>
+
+        <Spinner
+            android:id="@+id/spinnerTeachingClarity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <!-- Communication Dropdown -->
+        <TextView
+            android:id="@+id/communication"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Communication"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:layout_marginTop="20dp"/>
+
+        <Spinner
+            android:id="@+id/spinnerCommunication"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <!-- Fairness in Grading Dropdown -->
+        <TextView
+            android:id="@+id/fairnessGrading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Fairness in Grading"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:layout_marginTop="20dp"/>
+
+        <Spinner
+            android:id="@+id/spinnerFairnessGrading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <!-- Resources Available Dropdown -->
+        <TextView
+            android:id="@+id/resourcesAvailable"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Resources Available"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:layout_marginTop="20dp"/>
+
+        <Spinner
+            android:id="@+id/spinnerResourcesAvailable"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <!-- Feedback and Support Dropdown -->
+        <TextView
+            android:id="@+id/feedbackSupport"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Feedback and Support"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:layout_marginTop="20dp"/>
+
+        <Spinner
+            android:id="@+id/spinnerFeedbackSupport"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="1"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal">
+
+
+            />
+
+        <Button
+            android:id="@+id/submitbutton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_margin="10dp"
+            android:backgroundTint="@color/design_default_color_secondary"
+            android:text="Continue" />
+
+    </LinearLayout>
+
+</LinearLayout>
